@@ -3,8 +3,22 @@
   margin: 0;
 }
 
+@font-face {
+  font-family: fancy;
+  src: url(./JustAnotherHand-Regular.ttf);
+}
+
+@font-face {
+  font-family: k2d;
+  src: url(./K2D-Regular.ttf);
+}
+
 body {
+  display: flex;
   background-color: #ede9fe;
+  color: var(--text-clr);
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 :root {
@@ -12,4 +26,62 @@ body {
   --button-click-clr: #8b5cf6;
   --task-box-background-clr: #c4b5fd;
   --text-clr: #f5f3ff;
+}
+
+#left-content {
+  height: 100vh;
+  width: 70vw;
+}
+
+#image-box {
+  height: 100vh;
+  width: 30vw;
+  background-image: url(./images/flower-side.jpg);
+  background-size: cover;
+}
+
+#quote-section {
+  display: flex;
+  width: 100%;
+  height: 20%;
+  background-color: var(--main-clr);
+  font-family: fancy;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  border-bottom: 1px solid black;
+}
+
+#main-content {
+  display: flex;
+  height: 80%;
+  width: 100%;
+}
+
+#user-nav {
+  font-size: 0.9rem;
+}
+
+#side-nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 10%;
+  background-color: yellow;
+  font-family: k2d;
+  font-size: 1.1rem;
+}
+
+#side-nav div {
+  display: flex;
+  background-color: var(--main-clr);
+  flex: 1;
+  align-items: center;
+  padding-left: 1rem;
+  border-bottom: 1px solid black;
+}
+
+#task-section {
+  height: 100%;
+  width: 90%;
 }
