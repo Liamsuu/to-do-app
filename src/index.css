@@ -54,6 +54,7 @@ body {
 
 #main-content {
   display: flex;
+  align-items: center;
   height: 80%;
   width: 100%;
 }
@@ -65,23 +66,38 @@ body {
 #side-nav {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  width: 10%;
-  background-color: yellow;
+  height: 90%;
+  width: 20%;
+  background-color: var(--main-clr);
   font-family: k2d;
   font-size: 1.1rem;
+  margin-left: 1rem;
+  border-radius: 20px;
 }
 
-#side-nav div {
+#user-nav {
   display: flex;
-  background-color: var(--main-clr);
   flex: 1;
   align-items: center;
   padding-left: 1rem;
-  border-bottom: 1px solid black;
+}
+
+#project-creation {
+  flex: 9;
 }
 
 #task-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
-  width: 90%;
+  width: 80%;
+}
+
+#task-box {
+  display: flex;
+  height: 70%;
+  width: 40%;
+  background-color: var(--main-clr);
+  border-radius: 15px;
 }
