@@ -15,29 +15,21 @@
 
 body {
   display: flex;
-  background-color: #ede9fe;
+  background-color: #fef2f2;
   color: var(--text-clr);
   font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 :root {
-  --main-clr: #a78bfa;
-  --secondary-clr: #8b5cf6;
-  --task-box-background-clr: #c4b5fd;
-  --text-clr: #f5f3ff;
+  --main-clr: #f87171;
+  --secondary-clr: #ef4444;
+  --text-clr: #fef2f2;
 }
 
 #left-content {
   height: 100vh;
-  width: 70vw;
-}
-
-#image-box {
-  height: 100vh;
-  width: 30vw;
-  background-image: url(../components/images/flower-side.jpg);
-  background-size: cover;
+  width: 100vw;
 }
 
 #quote-section {
@@ -117,7 +109,8 @@ body {
   font-family: k2d;
   font-weight: bold;
   border: none;
-  background-color: #5b21b6;
+  /* background-color: #5b21b6; */
+  background-color: #991b1b;
   color: var(--text-clr);
 }
 
@@ -126,8 +119,29 @@ body {
   flex-direction: column;
   background-color: var(--secondary-clr);
   margin-left: 2rem;
-  height: 40%;
+  max-height: 40%;
+  min-height: 21rem;
+  /* height: 40%; */
   width: 20%;
   border-radius: 10px;
   padding: 1rem;
+}
+
+#form-btn-div {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: auto;
+  margin-left: auto;
+  gap: 0.2rem;
+  flex-shrink: 1;
+}
+
+#submit-button-form,
+#reset-button-form,
+#close-button-form {
+  padding: 0.4rem;
+  background-color: #991b1b;
+  border: 0;
+  color: var(--text-clr);
+  font-weight: bold;
 }

@@ -38,13 +38,24 @@ export default function displayTaskForm() {
     dueDateInput.id = "duedate";
 
     const priorityLabel = document.createElement("label");
-    priorityLabel.textContent = "Prioritise Task:";
-    priorityLabel.setAttribute("for", "duedate");
-    const priorityInput = document.createElement("input");
-    priorityInput.type = "checkbox";
-    priorityInput.placeholder = "Enter Duedate";
-    priorityInput.name = "duedate";
-    priorityInput.id = "duedate";
+    priorityLabel.textContent = "Priority:";
+    priorityLabel.setAttribute("for", "priorities");
+    const priorityInput = document.createElement("select");
+    priorityInput.id = "priorities";
+    priorityInput.name = "priorities";
+    const optionOne = document.createElement("option");
+    optionOne.value = "High";
+    optionOne.textContent = "High";
+    const optionTwo = document.createElement("option");
+    optionTwo.value = "Medium";
+    optionTwo.textContent = "Medium";
+    const optionThree = document.createElement("option");
+    optionThree.value = "Low";
+    optionThree.textContent = "Low";
+    priorityInput.append(optionOne, optionTwo, optionThree);
+
+    const formButtonDiv = document.createElement("div");
+    formButtonDiv.id = "form-btn-div";
 
     const submitButton = document.createElement("input");
     submitButton.type = "submit";
@@ -65,6 +76,8 @@ export default function displayTaskForm() {
       contentParent.removeChild(form);
     };
 
+    formButtonDiv.append(submitButton, resetButton, closeButton);
+
     form.append(
       formHeading,
       taskTitleLabel,
@@ -75,10 +88,13 @@ export default function displayTaskForm() {
       dueDateInput,
       priorityLabel,
       priorityInput,
-      submitButton,
-      resetButton,
-      closeButton
+      formButtonDiv
     );
+
+    form.onclick = function (event) {
+      event.preventDefault();
+      // if this stops submit working, remove this and add event listener another way.
+    };
 
     const taskSection = document.querySelector("#task-section");
     taskSection.appendChild(form);
