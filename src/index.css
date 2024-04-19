@@ -121,7 +121,7 @@ body {
   color: var(--text-clr);
 }
 
-#addTaskForm {
+#add-task-form {
   display: flex;
   flex-direction: column;
   background-color: var(--secondary-clr);
