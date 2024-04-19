@@ -54,6 +54,17 @@ export default function displayTaskForm() {
     resetButton.type = "reset";
     resetButton.id = "reset-button-form";
 
+    const closeButton = document.createElement("button");
+    closeButton.id = "close-button-form";
+    closeButton.textContent = "Close";
+    closeButton.onclick = function () {
+      while (form.firstChild) {
+        form.removeChild(form.firstChild);
+      }
+      const contentParent = document.querySelector("#task-section");
+      contentParent.removeChild(form);
+    };
+
     form.append(
       formHeading,
       taskTitleLabel,
@@ -65,7 +76,8 @@ export default function displayTaskForm() {
       priorityLabel,
       priorityInput,
       submitButton,
-      resetButton
+      resetButton,
+      closeButton
     );
 
     const taskSection = document.querySelector("#task-section");
