@@ -10,3 +10,8 @@ export default class Task {
 export function deleteTaskObj(taskObj) {
   taskObj = undefined;
 }
+
+export function addTask() {
+  const addTaskButton = document.querySelector("#create-task-button");
+  addTaskButton.onclick = displayTaskForm();
+}
