@@ -32,22 +32,22 @@ body {
   width: 100vw;
 }
 
-#quote-section {
+#title-section {
   display: flex;
   width: 100%;
-  height: 20%;
+  height: 10%;
   background-color: var(--main-clr);
   font-family: fancy;
   justify-content: center;
   align-items: center;
   font-size: 3rem;
-  border-bottom: 1px solid black;
+  box-shadow: 0px 3px 2px #ac1616a8;
 }
 
 #main-content {
   display: flex;
   align-items: center;
-  height: 80%;
+  height: 90%;
   width: 100%;
 }
 
@@ -58,24 +58,12 @@ body {
 #side-nav {
   display: flex;
   flex-direction: column;
-  height: 90%;
-  width: 20%;
+  height: 98%;
+  width: 8%;
   background-color: var(--main-clr);
   font-family: k2d;
   font-size: 1.1rem;
-  margin-left: 1rem;
-  border-radius: 20px;
-}
-
-#user-nav {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  padding-left: 1rem;
-}
-
-#project-creation {
-  flex: 9;
+  box-shadow: 3px 0px 2px #ac1616a8;
 }
 
 #task-section {
@@ -93,6 +81,8 @@ body {
   width: 40%;
   background-color: var(--main-clr);
   border-radius: 15px;
+  box-shadow: 3px 3px 2px #ac1616a8;
+  padding-top: 0.8rem;
 }
 
 #create-task-container {
@@ -109,7 +99,6 @@ body {
   font-family: k2d;
   font-weight: bold;
   border: none;
-  /* background-color: #5b21b6; */
   background-color: #991b1b;
   color: var(--text-clr);
 }
@@ -121,10 +110,10 @@ body {
   margin-left: 2rem;
   max-height: 40%;
   min-height: 21rem;
-  /* height: 40%; */
   width: 20%;
   border-radius: 10px;
   padding: 1rem;
+  box-shadow: 3px 3px 2px #ac1616a8;
 }
 
 #form-btn-div {
