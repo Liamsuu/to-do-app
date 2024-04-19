@@ -15,16 +15,16 @@
 
 body {
   display: flex;
-  background-color: #fef2f2;
+  background-color: #fafafa;
   color: var(--text-clr);
   font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 :root {
-  --main-clr: #f87171;
-  --secondary-clr: #ef4444;
-  --text-clr: #fef2f2;
+  --main-clr: #e5e5e5;
+  --secondary-clr: #d4d4d4;
+  --text-clr: #262626;
 }
 
 #left-content {
@@ -41,7 +41,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 3rem;
-  box-shadow: 0px 3px 2px #ac1616a8;
+  box-shadow: 0px 3px 2px #e5e5e5;
 }
 
 #main-content {
@@ -63,7 +63,7 @@ body {
   background-color: var(--main-clr);
   font-family: k2d;
   font-size: 1.1rem;
-  box-shadow: 3px 0px 2px #ac1616a8;
+  box-shadow: 3px 0px 2px #e5e5e5;
 }
 
 #task-section {
@@ -81,7 +81,7 @@ body {
   width: 40%;
   background-color: var(--main-clr);
   border-radius: 15px;
-  box-shadow: 3px 3px 2px #ac1616a8;
+  box-shadow: 3px 3px 2px #e5e5e5;
   padding-top: 0.8rem;
 }
 
@@ -95,11 +95,12 @@ body {
 #create-task-button {
   margin-left: 1rem;
   padding: 0.5rem;
+  font-size: 1.2rem;
   border-radius: 5px;
   font-family: k2d;
   font-weight: bold;
   border: none;
-  background-color: #991b1b;
+  background-color: #737373;
   color: var(--text-clr);
 }
 
@@ -113,7 +114,15 @@ body {
   width: 20%;
   border-radius: 10px;
   padding: 1rem;
-  box-shadow: 3px 3px 2px #ac1616a8;
+  box-shadow: 3px 3px 2px #e5e5e5;
+}
+
+#add-task-form h1 {
+  margin-left: auto;
+  margin-right: auto;
+  font-family: fancy;
+  font-weight: 100;
+  font-size: 3rem;
 }
 
 #form-btn-div {
@@ -129,7 +138,7 @@ body {
 #reset-button-form,
 #close-button-form {
   padding: 0.4rem;
-  background-color: #991b1b;
+  background-color: #737373;
   border: 0;
   color: var(--text-clr);
   font-weight: bold;
