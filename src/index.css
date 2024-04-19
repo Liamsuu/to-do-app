@@ -23,7 +23,7 @@ body {
 
 :root {
   --main-clr: #a78bfa;
-  --button-click-clr: #8b5cf6;
+  --secondary-clr: #8b5cf6;
   --task-box-background-clr: #c4b5fd;
   --text-clr: #f5f3ff;
 }
@@ -96,8 +96,27 @@ body {
 
 #task-box {
   display: flex;
+  flex-direction: column;
   height: 70%;
   width: 40%;
   background-color: var(--main-clr);
   border-radius: 15px;
+}
+
+#create-task-container {
+  display: flex;
+  background-color: var(--secondary-clr);
+  height: 10%;
+  align-items: center;
+}
+
+#create-task-button {
+  margin-left: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-family: k2d;
+  font-weight: bold;
+  border: none;
+  background-color: #5b21b6;
+  color: var(--text-clr);
 }
