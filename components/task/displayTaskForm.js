@@ -1,5 +1,6 @@
 import checkFormVisible from "./checkFormVisible";
-import appendFormData from "./appendFormData";
+import appendTaskToArr from "./appendTaskToArr";
+import showTasks from "./showTasks";
 
 export default function displayTaskForm() {
   // creates the pop up form to create task object.
@@ -11,6 +12,12 @@ export default function displayTaskForm() {
     form.method = "get";
     const formHeading = document.createElement("h1");
     formHeading.textContent = "Add new Task";
+    form.onsubmit = function (event) {
+      event.preventDefault();
+      // maybe event preventDefault() function
+      appendTaskToArr();
+      showTasks();
+    }; // test if this works, otherwise remove.
 
     const taskTitleLabel = document.createElement("label");
     taskTitleLabel.textContent = "Title:";
@@ -100,5 +107,4 @@ export default function displayTaskForm() {
     const taskSection = document.querySelector("#task-section");
     taskSection.appendChild(form);
   }
-  appendFormData(); // just adds event listener to save form data as array to be used.
 }
