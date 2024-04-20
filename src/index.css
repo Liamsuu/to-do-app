@@ -83,11 +83,11 @@ body {
   border-radius: 15px;
   box-shadow: 3px 3px 2px #e5e5e5;
   padding-top: 0.8rem;
+  gap: 10px;
 }
 
 #create-task-container {
   display: flex;
-  background-color: var(--secondary-clr);
   height: 10%;
   align-items: center;
 }
@@ -142,4 +142,9 @@ body {
   border: 0;
   color: var(--text-clr);
   font-weight: bold;
+}
+
+.task-data-div {
+  background-color: var(--secondary-clr);
+  padding: 10px 0px 10px 0.7rem;
 }

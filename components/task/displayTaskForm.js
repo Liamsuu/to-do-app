@@ -1,4 +1,6 @@
 import checkFormVisible from "./checkFormVisible";
+import appendFormData from "./appendFormData";
+
 export default function displayTaskForm() {
   // creates the pop up form to create task object.
 
@@ -91,12 +93,8 @@ export default function displayTaskForm() {
       formButtonDiv
     );
 
-    form.onclick = function (event) {
-      event.preventDefault();
-      // if this stops submit working, remove this and add event listener another way.
-    };
-
     const taskSection = document.querySelector("#task-section");
     taskSection.appendChild(form);
   }
+  appendFormData(); // just adds event listener to save form data as array to be used.
 }

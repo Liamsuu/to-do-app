@@ -9,4 +9,3 @@ import { deleteTaskObj } from "../components/task/task";
 appendToMain(createProjectBar());
 appendToMain(createTaskSection());
 createTaskDivider();
-const newTask = new Task();
