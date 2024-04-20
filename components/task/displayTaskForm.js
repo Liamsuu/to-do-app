@@ -41,6 +41,7 @@ export default function displayTaskForm() {
     dueDateInput.name = "duedate";
     dueDateInput.id = "duedate";
     dueDateInput.required = true;
+    dueDateInput.min = new Date().toISOString().split("T")[0];
 
     const priorityLabel = document.createElement("label");
     priorityLabel.textContent = "Priority:";
