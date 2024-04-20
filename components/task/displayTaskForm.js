@@ -20,6 +20,7 @@ export default function displayTaskForm() {
     taskTitleInput.placeholder = "Enter Title";
     taskTitleInput.name = "title";
     taskTitleInput.id = "title";
+    taskTitleInput.required = true;
 
     const taskDescriptionLabel = document.createElement("label");
     taskDescriptionLabel.textContent = "Description:";
@@ -29,6 +30,7 @@ export default function displayTaskForm() {
     taskDescriptionInput.placeholder = "Enter Description";
     taskDescriptionInput.name = "description";
     taskDescriptionInput.id = "description";
+    taskDescriptionInput.required = true;
 
     const dueDateLabel = document.createElement("label");
     dueDateLabel.textContent = "Due Date:";
@@ -38,6 +40,7 @@ export default function displayTaskForm() {
     dueDateInput.placeholder = "Enter Duedate";
     dueDateInput.name = "duedate";
     dueDateInput.id = "duedate";
+    dueDateInput.required = true;
 
     const priorityLabel = document.createElement("label");
     priorityLabel.textContent = "Priority:";

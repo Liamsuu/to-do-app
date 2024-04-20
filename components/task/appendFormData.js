@@ -2,6 +2,7 @@ import Task from "./task";
 import { appendTaskObjToList } from "./task";
 import { getTaskObjList } from "./task";
 import appendToTaskBox from "./appendToTaskBox";
+import { intervalToDuration } from "date-fns";
 
 export default function appendFormData() {
   const form = document.querySelector("#add-task-form");
@@ -10,13 +11,13 @@ export default function appendFormData() {
 
     const titleData = document.querySelector("#title").value;
     const descData = document.querySelector("#description").value;
-    const dueDateData = document.querySelector("#duedate").value;
+    const dueDateData = document.querySelector("input[type='date']").value;
     const priorityData = document.querySelector("#priorities").value;
     let id = getTaskObjList().length;
     appendTaskObjToList(
       new Task(titleData, descData, dueDateData, priorityData, id)
     );
-
+    const currentData = new Date();
     id = getTaskObjList().length - 1;
     const taskDiv = document.createElement("div");
     taskDiv.id = id;
@@ -27,7 +28,7 @@ export default function appendFormData() {
     const desc = document.createElement("p");
     desc.textContent = `Description: ${getTaskObjList()[id].description}`;
     const duedate = document.createElement("p");
-    duedate.textContent = `Due Date: ${getTaskObjList()[id].duedate}`;
+    duedate.textContent = `Due Date: ${getTaskObjList()[id].dueDate}`; // perhaps get duration until date, like output "2 days", etc.
     const priority = document.createElement("p");
     priority.textContent = `Priority: ${getTaskObjList()[id].priority}`;
     taskDiv.append(titlePara, desc, duedate, priority);
