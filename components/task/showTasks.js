@@ -17,7 +17,7 @@ export default function showTasks() {
 
   currentObjListValues.forEach((object) => {
     const objectDataContainer = document.createElement("div");
-    objectDataContainer.class = "task-data-div";
+    objectDataContainer.className = "task-data-div";
     objectDataContainer.id = currentObjListValues.indexOf(object);
 
     const titleText = document.createElement("h1");
