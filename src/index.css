@@ -156,7 +156,7 @@ body {
   display: flex;
   align-items: center;
   background-color: var(--secondary-clr);
-  padding: 0.4rem 0.5rem;
+  padding: 1rem 0.5rem;
 }
 
 .project-remove-icon,
