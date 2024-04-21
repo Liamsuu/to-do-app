@@ -8,8 +8,8 @@ export default class Task {
   }
 }
 
-export function deleteTaskObj(taskObj) {
-  taskObj = undefined;
+export function deleteTaskObjFromList(index) {
+  taskObjList.splice(index, 1);
 }
 
 export function appendTaskObjToList(object) {

@@ -1,5 +1,6 @@
 import { getTaskObjList } from "./task";
 import appendToTaskBox from "./appendToTaskBox";
+import { deleteTaskObjFromList } from "./task";
 
 export default function showTasks() {
   // just iterate through array of tasks and add that data in the task box.
@@ -35,11 +36,20 @@ export default function showTasks() {
     priorityText.className = "task-priorities";
     priorityText.textContent = object.priority;
 
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remove";
+    removeBtn.onclick = function () {
+      const parentId = removeBtn.parentElement.id;
+      deleteTaskObjFromList(Number(parentId));
+      showTasks();
+    };
+
     objectDataContainer.append(
       titleText,
       descriptionText,
       dueDateText,
-      priorityText
+      priorityText,
+      removeBtn
     );
 
     appendToTaskBox(objectDataContainer);
