@@ -64,6 +64,7 @@ body {
   font-family: k2d;
   font-size: 1.1rem;
   box-shadow: 3px 0px 2px #e5e5e5;
+  gap: 1rem;
 }
 
 #task-section {
@@ -145,6 +146,35 @@ body {
 }
 
 .task-data-div {
+  display: flex;
   background-color: var(--secondary-clr);
   padding: 10px 0px 10px 0.7rem;
+  word-break: break-word;
+}
+
+.projects-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--secondary-clr);
+  padding: 0.4rem 0.5rem;
+}
+
+.project-remove-icon,
+.task-remove-icon {
+  height: 2rem;
+}
+
+.project-remove-icon {
+  margin-left: auto;
+}
+
+.task-remove-icon {
+  margin-left: auto;
+  margin-top: auto;
+  margin-right: 1rem;
+}
+
+.data-grouper {
+  flex: 1;
+  word-break: break-word;
 }

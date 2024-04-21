@@ -5,5 +5,6 @@ export default function createTaskSection() {
   taskDiv.appendChild(taskBox);
   taskDiv.id = "task-section";
   taskBox.id = "task-box";
+  taskBox.setAttribute("style", "overflow-y:auto"); // add to css file if doesnt work here
   return taskDiv;
 }

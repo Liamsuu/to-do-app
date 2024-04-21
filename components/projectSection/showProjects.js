@@ -1,6 +1,7 @@
 import { getProjectObjList } from "./project";
 import { removeObjFromProjectArr } from "./project";
 import changeText from "../../src/changeText";
+import deleteIcon from "../images/delete.svg";
 
 export default function showProjects() {
   const projectList = getProjectObjList();
@@ -23,8 +24,9 @@ export default function showProjects() {
       showProjects();
     };
 
-    const projectRemoveBtn = document.createElement("button");
-    projectRemoveBtn.textContent = "Remove";
+    const projectRemoveBtn = new Image();
+    projectRemoveBtn.src = deleteIcon;
+    projectRemoveBtn.className = "project-remove-icon";
     projectRemoveBtn.onclick = function () {
       removeObjFromProjectArr(Number(projectsContainer.id));
       showProjects();

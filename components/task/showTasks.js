@@ -2,6 +2,7 @@ import { getTaskObjList } from "./task";
 import appendToTaskBox from "./appendToTaskBox";
 import { deleteTaskObjFromList } from "./task";
 import changeText from "../../src/changeText";
+import deleteIcon from "../images/delete.svg";
 
 export default function showTasks() {
   // just iterate through array of tasks and add that data in the task box.
@@ -49,21 +50,20 @@ export default function showTasks() {
     priorityText.className = "task-priorities";
     priorityText.textContent = object.priority;
 
-    const removeBtn = document.createElement("button");
-    removeBtn.textContent = "Remove";
+    const removeBtn = new Image();
+    removeBtn.src = deleteIcon;
+    removeBtn.className = "task-remove-icon";
     removeBtn.onclick = function () {
       const parentId = removeBtn.parentElement.id;
       deleteTaskObjFromList(Number(parentId));
       showTasks();
     };
 
-    objectDataContainer.append(
-      titleText,
-      descriptionText,
-      dueDateText,
-      priorityText,
-      removeBtn
-    );
+    const dataGrouper = document.createElement("div"); // this is just so they can be grouped together, so the remove icon can be styled right.
+    dataGrouper.append(titleText, descriptionText, dueDateText, priorityText);
+    dataGrouper.className = "data-grouper";
+
+    objectDataContainer.append(dataGrouper, removeBtn);
 
     appendToTaskBox(objectDataContainer);
   });

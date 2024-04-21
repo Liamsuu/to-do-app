@@ -6,6 +6,6 @@ import createTaskDivider from "../components/task/createTaskDivider";
 import showProjects from "../components/projectSection/showProjects";
 
 appendToMain(createProjectBar());
-showProjects();
+showProjects(); // this is just here because the project section has an initial project
 appendToMain(createTaskSection());
 createTaskDivider();
