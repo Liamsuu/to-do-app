@@ -1,5 +1,6 @@
 import { getProjectObjList } from "./project";
 import { removeObjFromProjectArr } from "./project";
+import changeName from "../../src/changeName";
 
 export default function showProjects() {
   const projectList = getProjectObjList();
@@ -15,6 +16,12 @@ export default function showProjects() {
 
     const projectName = document.createElement("p");
     projectName.textContent = object.name;
+    projectName.onclick = function () {
+      getProjectObjList()[Number(projectsContainer.id)].name = changeName(
+        projectName.textContent
+      ); // when project name is clicked, prompt to enter a new one then refresh with new name.
+      showProjects();
+    };
 
     const projectRemoveBtn = document.createElement("button");
     projectRemoveBtn.textContent = "Remove";
