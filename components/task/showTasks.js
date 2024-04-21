@@ -1,6 +1,7 @@
 import { getTaskObjList } from "./task";
 import appendToTaskBox from "./appendToTaskBox";
 import { deleteTaskObjFromList } from "./task";
+import changeText from "../../src/changeText";
 
 export default function showTasks() {
   // just iterate through array of tasks and add that data in the task box.
@@ -23,10 +24,22 @@ export default function showTasks() {
     const titleText = document.createElement("h1");
     titleText.className = "task-headings";
     titleText.textContent = object.title;
+    titleText.onclick = function () {
+      getTaskObjList()[Number(objectDataContainer.id)].title = changeText(
+        titleText.textContent
+      );
+      showTasks();
+    };
 
     const descriptionText = document.createElement("p");
     descriptionText.className = "task-descriptions";
     descriptionText.textContent = object.description;
+    descriptionText.onclick = function () {
+      getTaskObjList()[Number(objectDataContainer.id)].description = changeText(
+        descriptionText.textContent
+      );
+      showTasks();
+    };
 
     const dueDateText = document.createElement("p");
     dueDateText.className = "task-due-dates";

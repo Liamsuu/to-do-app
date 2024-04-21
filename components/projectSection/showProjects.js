@@ -1,6 +1,6 @@
 import { getProjectObjList } from "./project";
 import { removeObjFromProjectArr } from "./project";
-import changeName from "../../src/changeName";
+import changeText from "../../src/changeText";
 
 export default function showProjects() {
   const projectList = getProjectObjList();
@@ -12,12 +12,12 @@ export default function showProjects() {
   projectList.forEach((object) => {
     const projectsContainer = document.createElement("div");
     projectsContainer.className = "projects-container";
-    projectsContainer.id = projectList.indexOf(object); // adding a zero upfront of the number to not give them the same id format as the tasks containers.
+    projectsContainer.id = projectList.indexOf(object);
 
     const projectName = document.createElement("p");
     projectName.textContent = object.name;
     projectName.onclick = function () {
-      getProjectObjList()[Number(projectsContainer.id)].name = changeName(
+      getProjectObjList()[Number(projectsContainer.id)].name = changeText(
         projectName.textContent
       ); // when project name is clicked, prompt to enter a new one then refresh with new name.
       showProjects();
