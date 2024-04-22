@@ -1,6 +1,7 @@
 import checkFormVisible from "./checkFormVisible";
 import appendTaskToArr from "./appendTaskToArr";
 import showTasks from "./showTasks";
+import { getProjectObjList } from "../projectSection/project";
 
 export default function displayTaskForm() {
   // creates the pop up form to create task object.
@@ -16,7 +17,9 @@ export default function displayTaskForm() {
       event.preventDefault();
       // maybe event preventDefault() function
       appendTaskToArr();
-      showTasks();
+      const selectedProject = document.querySelector(".selected-project");
+      const selectedProjectId = selectedProject.id;
+      showTasks(getProjectObjList()[Number(selectedProjectId)]);
     }; // test if this works, otherwise remove.
 
     const taskTitleLabel = document.createElement("label");

@@ -4,13 +4,13 @@ import { deleteTaskObjFromList } from "./task";
 import changeText from "../../src/changeText";
 import deleteIcon from "../images/delete.svg";
 
-export default function showTasks() {
+export default function showTasks(projectObj) {
   // just iterate through array of tasks and add that data in the task box.
   // for each task, the div the holds it's data will be assigned a id which is just be equal to the index
   // of the object in the array. That way deleting is as easy as checking the id
   // removing whatever object is in that index. then recalling the method that shows the objects, they should have a new index, so a new id will be assigned.
   const taskAddBtnContainer = document.querySelector("#create-task-container");
-  const currentObjListValues = getTaskObjList();
+  const currentObjListValues = projectObj.projectsTasksArr;
 
   while (taskAddBtnContainer.nextSibling !== null) {
     taskAddBtnContainer.nextSibling.remove();
@@ -29,7 +29,7 @@ export default function showTasks() {
       getTaskObjList()[Number(objectDataContainer.id)].title = changeText(
         titleText.textContent
       );
-      showTasks();
+      showTasks(projectObj);
     };
 
     const descriptionText = document.createElement("p");
@@ -39,7 +39,7 @@ export default function showTasks() {
       getTaskObjList()[Number(objectDataContainer.id)].description = changeText(
         descriptionText.textContent
       );
-      showTasks();
+      showTasks(projectObj);
     };
 
     const dueDateText = document.createElement("p");
@@ -55,8 +55,8 @@ export default function showTasks() {
     removeBtn.className = "task-remove-icon";
     removeBtn.onclick = function () {
       const parentId = removeBtn.parentElement.id;
-      deleteTaskObjFromList(Number(parentId));
-      showTasks();
+      deleteTaskObjFromList(projectObj, Number(parentId));
+      showTasks(projectObj);
     };
 
     const dataGrouper = document.createElement("div"); // this is just so they can be grouped together, so the remove icon can be styled right.

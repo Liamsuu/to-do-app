@@ -2,6 +2,7 @@ import { getProjectObjList } from "./project";
 import { removeObjFromProjectArr } from "./project";
 import changeText from "../../src/changeText";
 import deleteIcon from "../images/delete.svg";
+import showTasks from "../task/showTasks";
 
 export default function showProjects() {
   const projectList = getProjectObjList();
@@ -33,6 +34,19 @@ export default function showProjects() {
     };
 
     projectsContainer.append(projectName, projectRemoveBtn);
+    projectsContainer.onclick = function () {
+      showTasks(getProjectObjList()[Number(projectsContainer.id)]);
+      for (
+        let child = projectBar.firstChild;
+        child;
+        child = child.nextSibling
+      ) {
+        if (child.classList.contains("selected-project")) {
+          child.classList.remove("selected-project");
+        }
+      }
+      projectsContainer.classList.add("selected-project");
+    };
 
     const projectBar = document.querySelector("#side-nav");
     projectBar.appendChild(projectsContainer);
@@ -48,3 +62,6 @@ export default function showProjects() {
  *
  * MAKE A GIT BRANCH TO WORK ON THIS NEW FEATURE AS I WILL HAVE TO REFACTOR ALOT!!!
  */
+
+// try onclick, create task object inside project object as an array of object values if not there already, otherwise load them
+// by iterating. Reload them as done before.

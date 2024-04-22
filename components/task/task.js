@@ -1,4 +1,4 @@
-let taskObjList = [];
+import { getProjectObjList } from "../projectSection/project";
 export default class Task {
   constructor(title, description, dueDate, priority, id) {
     this.title = title;
@@ -8,14 +8,20 @@ export default class Task {
   }
 }
 
-export function deleteTaskObjFromList(index) {
-  taskObjList.splice(index, 1);
+export function deleteTaskObjFromList(projectObj, index) {
+  projectObj.projectsTasksArr.splice(index, 1);
 }
 
-export function appendTaskObjToList(object) {
-  taskObjList.push(object);
+export function appendTaskObjToList(taskObj) {
+  const selectedProject = document.querySelector(".selected-project");
+  const selectedProjectId = selectedProject.id;
+  getProjectObjList()[Number(selectedProjectId)].appendToDoTasksToProjectArr(
+    taskObj
+  );
 }
 
 export function getTaskObjList() {
-  return taskObjList;
+  const selectedProject = document.querySelector(".selected-project");
+  const selectedProjectId = selectedProject.id;
+  return getProjectObjList()[Number(selectedProjectId)].projectsTasksArr;
 }
