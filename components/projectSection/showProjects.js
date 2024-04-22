@@ -28,7 +28,8 @@ export default function showProjects() {
     const projectRemoveBtn = new Image();
     projectRemoveBtn.src = deleteIcon;
     projectRemoveBtn.className = "project-remove-icon";
-    projectRemoveBtn.onclick = function () {
+    projectRemoveBtn.onclick = function (event) {
+      event.stopPropagation(); // will stop div also being clicked.
       removeObjFromProjectArr(Number(projectsContainer.id));
       showProjects();
     };
@@ -50,6 +51,8 @@ export default function showProjects() {
 
     const projectBar = document.querySelector("#side-nav");
     projectBar.appendChild(projectsContainer);
+
+    // set single project as selected project.
   });
 }
 
