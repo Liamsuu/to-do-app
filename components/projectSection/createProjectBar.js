@@ -1,6 +1,7 @@
 import Project from "./project";
 import { appendProjectObjToArr } from "./project";
 import showProjects from "./showProjects";
+import { setProjectObjLocalStorage } from "./project";
 
 export default function createProjectBar() {
   // create the project bar. Inside create a button that creates new projects. Essentially just write a method
@@ -15,11 +16,13 @@ export default function createProjectBar() {
   addProjectBtn.id = "add-project-btn";
   addProjectBtn.onclick = function () {
     appendProjectObjToArr(new Project("Untitled Project"));
+    setProjectObjLocalStorage();
     showProjects();
   };
   projectBar.appendChild(addProjectBtn);
-
-  const starterProject = new Project("Untitled Project");
-  appendProjectObjToArr(starterProject);
+  // if (projectBar.firstChild.nextSibling === null) {
+  //   const starterProject = new Project("Untitled Project");
+  //   appendProjectObjToArr(starterProject);
+  // }
   return projectBar;
 }

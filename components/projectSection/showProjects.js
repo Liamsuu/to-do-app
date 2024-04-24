@@ -1,4 +1,5 @@
 import { getProjectObjList } from "./project";
+import { setProjectObjLocalStorage } from "./project";
 import { removeObjFromProjectArr } from "./project";
 import changeText from "../../src/changeText";
 import deleteIcon from "../images/delete.svg";
@@ -22,6 +23,7 @@ export default function showProjects() {
       getProjectObjList()[Number(projectsContainer.id)].name = changeText(
         projectName.textContent
       ); // when project name is clicked, prompt to enter a new one then refresh with new name.
+      setProjectObjLocalStorage();
       showProjects();
     };
 
@@ -31,6 +33,7 @@ export default function showProjects() {
     projectRemoveBtn.onclick = function (event) {
       event.stopPropagation(); // will stop div also being clicked.
       removeObjFromProjectArr(Number(projectsContainer.id));
+      setProjectObjLocalStorage();
       showProjects();
     };
 
@@ -55,16 +58,3 @@ export default function showProjects() {
     // set single project as selected project.
   });
 }
-
-/**Will have to find a way to save the state of the tasks(they're just objects remember).
- * Likely will have to have a seperate array of Task objects for each project and link
- * them by the id number of the project and remove that task list when project is deleted.
- * likely need a array of array lists than just array of objects.
- * So that means the array will hold another array inside of it, which will include the task objects
- * as normal. The array inside the array index will correspond the id so can easily be deleted.
- *
- * MAKE A GIT BRANCH TO WORK ON THIS NEW FEATURE AS I WILL HAVE TO REFACTOR ALOT!!!
- */
-
-// try onclick, create task object inside project object as an array of object values if not there already, otherwise load them
-// by iterating. Reload them as done before.

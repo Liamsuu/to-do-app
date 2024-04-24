@@ -1,4 +1,5 @@
 import showProjects from "./showProjects";
+import Task from "../task/task";
 
 let projectObjArr = [];
 
@@ -32,14 +33,43 @@ export function getProjectObjList() {
 
 export function setProjectObjLocalStorage() {
   projectObjArrLocalStorage = JSON.stringify(projectObjArr);
-  localStorage.setItem("array", projectObjArrLocalStorage);
+  console.log(projectObjArrLocalStorage);
+  localStorage.setItem("projectArray", projectObjArrLocalStorage);
 }
 
 export function getLocalStorageValues() {
-  const arrString = localStorage.getItem("array");
-  const parsedArr = JSON.parse(arrString);
-  if (parsedArr !== null) {
-    projectObjArr = parsedArr;
-    showProjects();
+  /** Essentially this will be the first thing called to check if any saves have been done.
+   * it will check the set item above for the value of the project array which is saved when something changes each time(clicks to add and remove stuff, etc.)
+   * it will turn the string aray values into an object, so the job i needed to do was turn them back into project objects,
+   * but before that it needs to go through each projects tasks and also turn them back into task objects from unnamed objects. To do that it needs to iterate through them and get each of their values.
+   */
+
+  let projects;
+  let parsedProjects;
+  projects = localStorage.getItem("projectArray");
+  parsedProjects = JSON.parse(projects);
+  console.log(parsedProjects);
+  let tasks = [];
+  let serializedProjects = [];
+  if (parsedProjects !== null) {
+    parsedProjects.forEach((projectObject) => {
+      tasks.push([]);
+      projectObject.projectsTasksArr.forEach((taskObject) => {
+        tasks[parsedProjects.indexOf(projectObject)].push(
+          new Task(
+            taskObject.title,
+            taskObject.description,
+            taskObject.dueDate,
+            taskObject.priority
+          )
+        );
+      });
+      serializedProjects.push(new Project(projectObject.name));
+    });
+    serializedProjects.forEach((project) => {
+      project.projectsTasksArr = tasks[serializedProjects.indexOf(project)];
+      projectObjArr.push(project);
+    });
+    console.log(getProjectObjList());
   }
 }

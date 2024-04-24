@@ -3,6 +3,7 @@ import appendToTaskBox from "./appendToTaskBox";
 import { deleteTaskObjFromList } from "./task";
 import changeText from "../../src/changeText";
 import deleteIcon from "../images/delete.svg";
+import { setProjectObjLocalStorage } from "../projectSection/project";
 
 export default function showTasks(projectObj) {
   // just iterate through array of tasks and add that data in the task box.
@@ -29,6 +30,7 @@ export default function showTasks(projectObj) {
       getTaskObjList()[Number(objectDataContainer.id)].title = changeText(
         titleText.textContent
       );
+      setProjectObjLocalStorage();
       showTasks(projectObj);
     };
 
@@ -39,6 +41,7 @@ export default function showTasks(projectObj) {
       getTaskObjList()[Number(objectDataContainer.id)].description = changeText(
         descriptionText.textContent
       );
+      setProjectObjLocalStorage();
       showTasks(projectObj);
     };
 
@@ -56,6 +59,7 @@ export default function showTasks(projectObj) {
     removeBtn.onclick = function () {
       const parentId = removeBtn.parentElement.id;
       deleteTaskObjFromList(projectObj, Number(parentId));
+      setProjectObjLocalStorage();
       showTasks(projectObj);
     };
 
